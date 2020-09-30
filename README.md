@@ -23,7 +23,4 @@ See the [Wiki](https://github.com/kantlivelong/OctoPrint-PSUControl/wiki/Trouble
 See the [Wiki](https://github.com/kantlivelong/OctoPrint-PSUControl/wiki/API)
 
 ## Support
-Help can be found at the [OctoPrint Community Forums](https://community.octoprint.org)
-
-## Feature Requests
-[![Feature Requests](https://feathub.com/kantlivelong/OctoPrint-PSUControl?format=svg)](https://feathub.com/kantlivelong/OctoPrint-PSUControl)
+Contact the SimplyPrint support at [contact@simplyprint.dk](mailto:contact@simplyprint.dk) or through the live-chat on [simplyprint.dk](https://simplyprint.dk/)
