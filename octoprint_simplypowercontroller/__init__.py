@@ -753,9 +753,9 @@ class SimplyPowerController(octoprint.plugin.StartupPlugin,
 
     def get_assets(self):
         return {
-            "js": ["js/psucontrol.js"],
-            "less": ["less/psucontrol.less"],
-            "css": ["css/psucontrol.min.css"]
+            "js": ["js/simplypowercontroller.js"],
+            "less": ["less/simplypowercontroller.less"],
+            "css": ["css/simplypowercontroller.min.css"]
 
         }
 

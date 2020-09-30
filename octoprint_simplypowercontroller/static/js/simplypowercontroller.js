@@ -1,6 +1,6 @@
 $(function() {
-    function PSUControlViewModel(parameters) {
-        var self = this;
+    function SimplyPowerControllerViewModel(parameters) {
+        let self = this;
 
         self.settingsViewModel = parameters[0]
         self.loginState = parameters[1];
@@ -87,7 +87,7 @@ $(function() {
     }
 
     ADDITIONAL_VIEWMODELS.push([
-        PSUControlViewModel,
+        SimplyPowerControllerViewModel,
         ["settingsViewModel", "loginStateViewModel"],
         ["#navbar_plugin_simplypowercontroller", "#settings_plugin_simplypowercontroller"]
     ]);
