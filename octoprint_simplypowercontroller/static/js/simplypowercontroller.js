@@ -15,6 +15,9 @@ $(function() {
 
         self.onStartup = function () {
             self.isPSUOn.subscribe(function() {
+                console.log("EYO subscribed stuff!");
+                console.log(self);
+
                 if (self.isPSUOn()) {
                     self.psu_indicator.removeClass("off").addClass("on");
                 } else {
@@ -36,7 +39,7 @@ $(function() {
         }
 
         self.onDataUpdaterPluginMessage = function(plugin, data) {
-            if (plugin != "psucontrol") {
+            if (plugin != "simplypowercontroller") {
                 return;
             }
 
