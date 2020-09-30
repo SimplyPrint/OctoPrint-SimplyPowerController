@@ -3,14 +3,14 @@ import setuptools
 
 ########################################################################################################################
 
-plugin_identifier = "psucontrol"
+plugin_identifier = "simplypowercontroller"
 plugin_package = "octoprint_%s" % plugin_identifier
-plugin_name = "OctoPrint-PSUControl"
+plugin_name = "SimplyPowerController"
 plugin_version = "0.1.9"
-plugin_description = "Control ATX/AUX power supply."
-plugin_author = "Shawn Bruce"
-plugin_author_email = "kantlivelong@gmail.com"
-plugin_url = "https://github.com/kantlivelong/OctoPrint-PSUControl"
+plugin_description = "Control the SimplyPrint power controller, or any other ATX/AUX power supply."
+plugin_author = "SimplyPrint & Shawn Bruce"
+plugin_author_email = "albert@simplyprint.dk"
+plugin_url = "https://github.com/SimplyPrint/OctoPrint-SimplyPowerController"
 plugin_license = "AGPLv3"
 plugin_additional_data = []
 
