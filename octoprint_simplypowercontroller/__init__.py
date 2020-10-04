@@ -7,6 +7,7 @@ __copyright__ = "Copyright (C) 2017 Shawn Bruce - Released under terms of the AG
 
 import octoprint.plugin
 from octoprint.server import user_permission
+from octoprint.events import Events
 import time
 import subprocess
 import threading
@@ -67,10 +68,11 @@ except:
 
 
 class SimplyPowerController(octoprint.plugin.StartupPlugin,
-                 octoprint.plugin.TemplatePlugin,
-                 octoprint.plugin.AssetPlugin,
-                 octoprint.plugin.SettingsPlugin,
-                 octoprint.plugin.SimpleApiPlugin):
+                            octoprint.plugin.TemplatePlugin,
+                            octoprint.plugin.AssetPlugin,
+                            octoprint.plugin.EventHandlerPlugin,
+                            octoprint.plugin.SettingsPlugin,
+                            octoprint.plugin.SimpleApiPlugin):
 
     def __init__(self):
         try:
@@ -547,6 +549,7 @@ class SimplyPowerController(octoprint.plugin.StartupPlugin,
             time.sleep(0.1 + self.postOnDelay)
             self.check_psu_state()
             self._reset_idle_timer()
+            self._event_bus.fire(Events.PLUGIN_SIMPLYPOWERCONTROLLER_POWER_ON)
 
     def turn_psu_off(self):
         if self.switchingMethod == 'GCODE' or self.switchingMethod == 'GPIO' or self.switchingMethod == 'SYSTEM':
@@ -587,6 +590,7 @@ class SimplyPowerController(octoprint.plugin.StartupPlugin,
 
             time.sleep(0.1)
             self.check_psu_state()
+            self._event_bus.fire(Events.PLUGIN_SIMPLYPOWERCONTROLLER_POWER_OFF)
 
     def get_api_commands(self):
         return dict(
@@ -775,6 +779,12 @@ class SimplyPowerController(octoprint.plugin.StartupPlugin,
                 pip="https://github.com/SimplyPrint/OctoPrint-SimplyPowerController/archive/{target_version}.zip"
             )
         )
+
+    def register_custom_events(*args, **kwargs):
+        return [
+            "power_off",
+            "power_on"
+        ]
 
 
 __plugin_pythoncompat__ = ">=2.7,<4"
