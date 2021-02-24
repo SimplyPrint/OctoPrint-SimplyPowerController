@@ -786,6 +786,18 @@ class SimplyPowerController(octoprint.plugin.StartupPlugin,
             "power_on"
         ]
 
+    # Exported helpers
+    def get_status(self):
+        return {
+            "isPSUOn": self.isPSUOn
+        }
+
+    def psu_on(self):
+        self.turn_psu_on()
+
+    def psu_off(self):
+        self.turn_psu_off()
+
 
 __plugin_pythoncompat__ = ">=2.7,<4"
 
@@ -799,4 +811,11 @@ def __plugin_load__():
         "octoprint.comm.protocol.gcode.queuing": __plugin_implementation__.hook_gcode_queuing,
         "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
         "octoprint.events.register_custom_events": __plugin_implementation__.register_custom_events,
+    }
+
+    global __plugin_helpers__
+    __plugin_helpers__ = {
+        "get_status": __plugin_implementation__.get_status,
+        "psu_on": __plugin_implementation__.psu_on,
+        "psu_off": __plugin_implementation__.psu_off,
     }
