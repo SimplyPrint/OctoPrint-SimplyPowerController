@@ -6,7 +6,7 @@ import setuptools
 plugin_identifier = "simplypowercontroller"
 plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "SimplyPowerController"
-plugin_version = "0.2.2"
+plugin_version = "0.3.0"
 plugin_description = "Control the SimplyPrint power controller, or any other ATX/AUX power supply."
 plugin_author = "SimplyPrint & Shawn Bruce"
 plugin_author_email = "albert@simplyprint.dk"
